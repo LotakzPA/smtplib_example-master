@@ -4,14 +4,15 @@ import smtplib
 from getpass import getpass
 from email.mime.text import MIMEText
 
-your_email = "dylan.stouls@viacesi.fr"
+your_email = "your.email@example.com"
 your_password = getpass()
 
+# This will help us with the email format
 message = MIMEText('Ceci est un test !')
 message['Subject'] = 'Objet du message'
 
-message['From'] = 'dylan.stouls@viacesi.fr'
-message['To'] = 'dylan.stouls@viacesi.fr'
+message['From'] = 'your.email@example.com'
+message['To'] = 'your.email@example.com'  # You can send an email at yourself to test
 
 
 try:
@@ -22,5 +23,7 @@ try:
     smtpObj.login(your_email, your_password)
     smtpObj.send_message(message)
     print("Successfully sent email")
+    input()
 except Exception:
     print("Error: unable to send email")
+    input()
